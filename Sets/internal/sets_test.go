@@ -1,6 +1,7 @@
 package sets
 
 import (
+	"github.com/stretchr/testify/assert"
 	"reflect"
 	"testing"
 )
@@ -14,6 +15,7 @@ func TestNewSetInt(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
+			assert.Equal(t, tt.want, NewSetInt())
 			if got := NewSetInt(); !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("NewSetInt() = %v, want %v", got, tt.want)
 			}
@@ -34,6 +36,8 @@ func TestSetInt_Add(t *testing.T) {
 		args   args
 	}{
 		// TODO: Add test cases.
+		{"positive", {{1: struct{}, 2: struct{}}}, {3}
+		}
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

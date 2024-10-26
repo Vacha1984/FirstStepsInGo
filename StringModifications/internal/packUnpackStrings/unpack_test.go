@@ -20,6 +20,7 @@ func TestUnpack(t *testing.T) {
 		{"hasNumberInEnd", args{"abcd5"}, "abcddddd"},
 		{"hasNull", args{"abcd0"}, "abc"},
 		{"hasBigNumber", args{"abcd15"}, "abcddddddddddddddd"},
+		{"hasSpecChar", args{"abc\n2"}, "abc\n\n"},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
